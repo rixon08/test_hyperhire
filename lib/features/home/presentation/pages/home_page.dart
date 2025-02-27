@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   ];
 
   final List<ReviewerModel> reviewers = [
-    ReviewerModel(name: "Name01", imageUrl: 'assets/images/reviewer/1.jpeg'),
+    ReviewerModel(name: "Name01", imageUrl: 'assets/images/reviewer/1.jpeg', isTopReviewer: true),
     ReviewerModel(name: "Name02", imageUrl: 'assets/images/reviewer/2.jpeg'),
     ReviewerModel(name: "Name03", imageUrl: 'assets/images/reviewer/3.jpeg'),
     ReviewerModel(name: "Name04", imageUrl: 'assets/images/reviewer/4.jpeg'),
@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(title: Text('Gradient Border TextField')),
+      appBar: AppBar(title: Text('LOGO'), backgroundColor: Colors.white),
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -146,14 +146,15 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 20,
+                  ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 14,
-                        ),
+                        padding: const EdgeInsets.symmetric(vertical: 14),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           mainAxisSize: MainAxisSize.max,
@@ -203,9 +204,9 @@ class _HomePageState extends State<HomePage> {
                           ),
                           ItemTopWidget(
                             name: "LG전자  울트라HD 75UP8300KNA (스탠드)",
-                            desc1:
-                                "화면 잘 나오고... 리모컨 기능 좋습니다.",
-                            desc2: "넷플 아마존 등 버튼하나로 바로 접속 되고디스플레이는 액정문제 없어보이고소리는 살짝 약간 감이 있으나 ^^; 시끄러울까봐 그냥 블루투스 헤드폰 구매 예정이라 문제는 없네요. 아주 만족입니다!!",
+                            desc1: "화면 잘 나오고... 리모컨 기능 좋습니다.",
+                            desc2:
+                                "넷플 아마존 등 버튼하나로 바로 접속 되고디스플레이는 액정문제 없어보이고소리는 살짝 약간 감이 있으나 ^^; 시끄러울까봐 그냥 블루투스 헤드폰 구매 예정이라 문제는 없네요. 아주 만족입니다!!",
                             crown: TypeCrownItem.two,
                             image: "assets/images/tv_2.png",
                             rating: "4.36",
@@ -214,10 +215,12 @@ class _HomePageState extends State<HomePage> {
                             tag2: "고화질",
                           ),
                           ItemTopWidget(
-                            name: "라익미 스마트 DS4001L NETRANGE (스탠드)GX30K WIN10 (SSD 256GB)",
+                            name:
+                                "라익미 스마트 DS4001L NETRANGE (스탠드)GX30K WIN10 (SSD 256GB)",
                             desc1:
                                 "반응속도 및 화질이나 여러면에서도 부족함을  느끼기에는 커녕 이정도에 이 정도 성능이면 차고 넘칠만 합니다",
-                            desc2: "중소기업TV 라익미 제품을 사용해보았는데 뛰어난 가성비와 더불어OTT 서비스에 오픈 브라우저 까지 너무 마음에 들게끔 기능들을 사용 가능했고",
+                            desc2:
+                                "중소기업TV 라익미 제품을 사용해보았는데 뛰어난 가성비와 더불어OTT 서비스에 오픈 브라우저 까지 너무 마음에 들게끔 기능들을 사용 가능했고",
                             crown: TypeCrownItem.three,
                             image: "assets/images/tv_3.png",
                             rating: "3.98",
@@ -231,13 +234,206 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Container(height: 30, color: Color(0xFFEEEEEE)),
-                _bestReviewerWidget()
+                _bestReviewerWidget(),
+                Container(
+                  padding: EdgeInsets.all(16),
+                  color: Color(0xFFEEEEEE),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "LOGO Inc.",
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          color: Color(0xFF868686),
+                        ),
+                      ),
+                      _spacing(),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Expanded(
+                            child: Center(
+                              child: Text(
+                                "회사 소개 ",
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFF868686),
+                                ),
+                              ),
+                            ),
+                          ),
+                          _divider(),
+                          Expanded(
+                            child: Center(
+                              child: Text(
+                                "인재 채용",
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFF868686),
+                                ),
+                              ),
+                            ),
+                          ),
+                          _divider(),
+                          Expanded(
+                            child: Center(
+                              child: Text(
+                                "기술 블로그",
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFF868686),
+                                ),
+                              ),
+                            ),
+                          ),
+                          _divider(),
+                          Expanded(
+                            child: Center(
+                              child: Text(
+                                "리뷰 저작권",
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFF868686),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      _spacing(),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              SvgPicture.asset("assets/images/arrow_icon.svg"),
+                              Text(
+                                "review@logo.com",
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFF868686),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 5),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(30),
+                              ),
+                              border: Border.all(
+                                color: Color(0xFF868686),
+                                width: 1,
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  "KOR",
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w400,
+                                    color: Color(0xFF868686),
+                                  ),
+                                ),
+                                SizedBox(width: 25),
+                                SvgPicture.asset(
+                                  "assets/images/polygon_icon.svg",
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      _spacing(),
+                      Container(
+                        width: double.infinity,
+                        height: 1,
+                        color: Color(0xFFC8C8C8),
+                      ),
+                      _spacing(),
+                      Text(
+                        "@2022-2022 LOGO Lab, Inc. (주)아무개  서울시 강남구",
+                        style: TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF868686),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
         ],
       ),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(20),
+            topLeft: Radius.circular(20),
+          ),
+          border: Border(top: BorderSide(color: Color(0xFFD7D7D7), width: 2)),
+          // boxShadow: [
+          //   BoxShadow(color: Colors.grey.shade300, spreadRadius: 0, blurRadius: 22),
+          // ],
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20.0),
+            topRight: Radius.circular(20.0),
+          ),
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            selectedItemColor: Color(0xFF1D1D1D),
+            unselectedItemColor: Color(0xFFD7D7D7),
+            selectedLabelStyle: TextStyle(color: Color(0xFF1D1D1D)),
+            unselectedLabelStyle: TextStyle(color: Color(0xFFD7D7D7)),
+            currentIndex: 0,
+            onTap: (index) {},
+            items: [
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset("assets/images/home_icon.svg"),
+                label: '홈',
+              ),
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset("assets/images/category_icon.svg"),
+                label: '카테고리',
+              ),
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset("assets/images/community_icon.svg"),
+                label: '커뮤니티',
+              ),
+              BottomNavigationBarItem(
+                icon: SvgPicture.asset("assets/images/my_page_icon.svg"),
+                label: '마이페이지',
+              ),
+            ],
+          ),
+        ),
+      ),
     );
+  }
+
+  Widget _spacing() {
+    return SizedBox(height: 14);
+  }
+
+  Widget _divider() {
+    return Container(height: 15, width: 2, color: Color(0xFFC8C8C8));
   }
 
   Widget _bestReviewerWidget() {
@@ -276,11 +472,29 @@ class _HomePageState extends State<HomePage> {
             scrollDirection: Axis.horizontal,
             children: [
               for (int i = 0; i < reviewers.length; i++)
-                ItemTopReviewer(reviewer: reviewers[i], isTopReviewer: i == 0,),
+                ItemTopReviewer(reviewer: reviewers[i]),
             ],
           ),
         ),
       ],
     );
   }
+}
+
+class CustomNavBarClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.lineTo(0, 20);
+    path.quadraticBezierTo(0, 0, 20, 0);
+    path.lineTo(size.width - 20, 0);
+    path.quadraticBezierTo(size.width, 0, size.width, 20);
+    path.lineTo(size.width, size.height);
+    path.lineTo(0, size.height);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
