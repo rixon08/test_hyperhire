@@ -70,13 +70,13 @@ class ItemTopWidget extends StatelessWidget {
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
                 ),
                 Text(
-                  "• ${desc1}",
+                  "• $desc1",
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
                 ),
                 Text(
-                  "• ${desc2}",
+                  "• $desc2",
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
@@ -89,7 +89,7 @@ class ItemTopWidget extends StatelessWidget {
                     SizedBox(width: 5,),
                     Text(rating, style: TextStyle(fontWeight: FontWeight.w700, color: Color(0xFFFFD233)),),
                     SizedBox(width: 5,),
-                    Text("(${ratingCount})", style: TextStyle(fontWeight: FontWeight.w700, color: Color(0xFFC4C4C4)),)
+                    Text("($ratingCount)", style: TextStyle(fontWeight: FontWeight.w700, color: Color(0xFFC4C4C4)),)
                   ],
                 ),
                 SizedBox(height: 6),

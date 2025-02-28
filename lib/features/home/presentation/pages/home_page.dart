@@ -23,7 +23,11 @@ class _HomePageState extends State<HomePage> {
   ];
 
   final List<ReviewerModel> reviewers = [
-    ReviewerModel(name: "Name01", imageUrl: 'assets/images/reviewer/1.jpeg', isTopReviewer: true),
+    ReviewerModel(
+      name: "Name01",
+      imageUrl: 'assets/images/reviewer/1.jpeg',
+      isTopReviewer: true,
+    ),
     ReviewerModel(name: "Name02", imageUrl: 'assets/images/reviewer/2.jpeg'),
     ReviewerModel(name: "Name03", imageUrl: 'assets/images/reviewer/3.jpeg'),
     ReviewerModel(name: "Name04", imageUrl: 'assets/images/reviewer/4.jpeg'),
@@ -35,14 +39,22 @@ class _HomePageState extends State<HomePage> {
     ReviewerModel(name: "Name10", imageUrl: 'assets/images/reviewer/10.jpeg'),
   ];
 
-  CarouselSliderController _controller = CarouselSliderController();
+  final CarouselSliderController _controller = CarouselSliderController();
   int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(title: Text('LOGO'), backgroundColor: Colors.white),
+      appBar: AppBar(
+        surfaceTintColor: Colors.transparent,
+        title: Text('LOGO'),
+        backgroundColor: Colors.white,
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(1.0),
+          child: Container(color: Color(0xFFD7D7D7), height: 2.0),
+        ),
+      ),
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
