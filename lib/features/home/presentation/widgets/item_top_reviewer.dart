@@ -5,8 +5,10 @@ import 'package:test_hyperhire/features/home/domain/models/reviewer_model.dart';
 
 class ItemTopReviewer extends StatelessWidget {
   ReviewerModel reviewer;
+  int posReviewer;
 
   ItemTopReviewer({
+    required this.posReviewer,
     required this.reviewer,
     super.key,
   });
@@ -14,12 +16,13 @@ class ItemTopReviewer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: Colors.white,
       child: InkWell(
         onTap: () {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => DetailReviewerPage(reviewer: reviewer),
+              builder: (context) => DetailReviewerPage(posReviewer: posReviewer, reviewer: reviewer),
             ),
           );
         },

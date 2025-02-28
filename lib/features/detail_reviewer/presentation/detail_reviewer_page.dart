@@ -4,7 +4,8 @@ import 'package:test_hyperhire/features/home/domain/models/reviewer_model.dart';
 
 class DetailReviewerPage extends StatelessWidget {
   final ReviewerModel reviewer;
-  DetailReviewerPage({required this.reviewer, super.key});
+  final int posReviewer;
+  DetailReviewerPage({required this.posReviewer, required this.reviewer, super.key});
 
   List<String> listComment = ["가격 저렴해요", "CPU온도 고온", "서멀작업 가능해요", "게임 잘 돌아가요"];
   List<String> listReviews = [
@@ -21,7 +22,7 @@ class DetailReviewerPage extends StatelessWidget {
         title: Column(
           children: [
             Text(
-              '랭킹 1위',
+              '랭킹 $posReviewer위',
               style: TextStyle(
                 fontSize: 10,
                 fontWeight: FontWeight.w400,
@@ -66,20 +67,23 @@ class DetailReviewerPage extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          SvgPicture.asset("assets/images/crown_icon.svg"),
-                          SizedBox(width: 5),
-                          Text(
-                            "골드",
-                            style: TextStyle(
-                              color: Color(0xFFFFD233),
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14,
+                      Visibility(
+                        visible: reviewer.isTopReviewer,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            SvgPicture.asset("assets/images/crown_icon.svg", width: 19, height: 19,),
+                            SizedBox(width: 5),
+                            Text(
+                              "골드",
+                              style: TextStyle(
+                                color: Color(0xFFFFD233),
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                       SizedBox(height: 10),
                       Container(
@@ -93,7 +97,7 @@ class DetailReviewerPage extends StatelessWidget {
                           style: TextStyle(color: Color(0xFF868686)),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 28),
                     ],
                   ),
                 ),

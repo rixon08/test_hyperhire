@@ -1,37 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:test_hyperhire/features/home/domain/models/item_model.dart';
 import 'package:test_hyperhire/features/home/enums/type_crown_item.dart';
 
 class ItemTopWidget extends StatelessWidget {
-  String name;
-  String desc1;
-  String desc2;
-  TypeCrownItem crown;
-  String image;
-  String rating;
-  String ratingCount;
-  String tag1;
-  String tag2;
+  ItemModel item;
 
-  ItemTopWidget({
-    required this.name,
-    required this.desc1,
-    required this.desc2,
-    required this.crown,
-    required this.image,
-    required this.rating,
-    required this.ratingCount,
-    required this.tag1,
-    required this.tag2,
-    super.key,
-  });
+  ItemTopWidget({required this.item, super.key});
 
   @override
   Widget build(BuildContext context) {
     String crownUrl = "";
-    if (crown == TypeCrownItem.one) {
+    if (item.crown == TypeCrownItem.one) {
       crownUrl = "assets/images/crown_1.svg";
-    } else if (crown == TypeCrownItem.two) {
+    } else if (item.crown == TypeCrownItem.two) {
       crownUrl = "assets/images/crown_2.svg";
     } else {
       crownUrl = "assets/images/crown_3.svg";
@@ -52,7 +34,7 @@ class ItemTopWidget extends StatelessWidget {
             ),
             child: Stack(
               children: [
-                Center(child: Image.asset(image, width: 110, height: 110,)),
+                Center(child: Image.asset(item.image, width: 110, height: 110)),
                 SvgPicture.asset(crownUrl, width: 19),
               ],
             ),
@@ -64,42 +46,56 @@ class ItemTopWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  name,
+                  item.name,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                   style: TextStyle(fontSize: 14, fontWeight: FontWeight.w700),
                 ),
-                Text(
-                  "• $desc1",
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
-                ),
-                Text(
-                  "• $desc2",
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
-                ),
+                for (int i = 0; i < item.listDesc.length; i++)
+                  Text(
+                    "• ${item.listDesc[i]}",
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                  ),
                 SizedBox(height: 6),
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     SvgPicture.asset("assets/images/rating_icon.svg"),
-                    SizedBox(width: 5,),
-                    Text(rating, style: TextStyle(fontWeight: FontWeight.w700, color: Color(0xFFFFD233)),),
-                    SizedBox(width: 5,),
-                    Text("($ratingCount)", style: TextStyle(fontWeight: FontWeight.w700, color: Color(0xFFC4C4C4)),)
+                    SizedBox(width: 5),
+                    Text(
+                      item.rating,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        color: Color(0xFFFFD233),
+                      ),
+                    ),
+                    SizedBox(width: 5),
+                    Text(
+                      "(${item.ratingCount})",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        color: Color(0xFFC4C4C4),
+                      ),
+                    ),
                   ],
                 ),
                 SizedBox(height: 6),
                 Row(
                   children: [
-                    _itemTag(tag1),
-                    SizedBox(width: 6,),
-                    _itemTag(tag2),
+                    for (int i = 0; i < item.listTag.length; i++)
+                      i > 0
+                          ? Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              SizedBox(width: 6),
+                              _itemTag(item.listTag[i]),
+                            ],
+                          )
+                          : _itemTag(item.listTag[i]),
                   ],
-                )
+                ),
               ],
             ),
           ),
@@ -108,14 +104,14 @@ class ItemTopWidget extends StatelessWidget {
     );
   }
 
-  Widget _itemTag(String tag){
+  Widget _itemTag(String tag) {
     return Container(
       decoration: BoxDecoration(
         color: Color(0xFFF0F0F0),
-        borderRadius: BorderRadius.all(Radius.circular(10))
+        borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
       padding: EdgeInsets.all(5),
-      child: Text(tag, style: TextStyle(color: Color(0xFF868686)),),
+      child: Text(tag, style: TextStyle(color: Color(0xFF868686))),
     );
   }
 }
