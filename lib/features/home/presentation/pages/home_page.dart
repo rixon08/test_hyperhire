@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         surfaceTintColor: Colors.transparent,
-        title: Text('LOGO'),
+        title: Text('LOGO', style: TextStyle(fontSize: 24, color: Color(0xFF5D5FEF), fontWeight: FontWeight.w500),),
         backgroundColor: Colors.white,
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(1.0),
